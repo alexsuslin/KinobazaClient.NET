@@ -5,9 +5,8 @@ namespace Kinobaza.Test
     internal static class Config
     {
         #region Properties
-        
-        internal static string Username = ConfigurationManager.AppSettings["Username"] ?? "<INSERT USERNAME>";
-        internal static string Password = ConfigurationManager.AppSettings["Password"] ?? "<INSERT PASSWORD>";
+
+        internal static string AccessToken = ConfigurationManager.AppSettings["SecurityToken"] ?? "<INSERT TOKEN>";
 
         #endregion
     }

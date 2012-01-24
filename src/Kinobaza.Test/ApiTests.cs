@@ -1,7 +1,8 @@
-﻿using Kinobaza.Api.Objects;
+﻿using Kinobaza.Api;
+using Kinobaza.Api.Constants;
+using Kinobaza.Api.Objects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MyShows.Api;
-using MyShows.Api.Objects;
 
 namespace Kinobaza.Test
 {
@@ -10,15 +11,15 @@ namespace Kinobaza.Test
     {
         private readonly Credentials credentials;
         private readonly Credentials wrongCredentials;
-        private readonly MyShowsClient Client;
-        private readonly MyShowsClient InvalidClient;
+        private readonly KinobazaClient Client;
+        private readonly KinobazaClient InvalidClient;
 
         public ApiTests()
         {
-            credentials = new Credentials(Config.Username, Config.Password);
-            wrongCredentials = new Credentials("wrongusername", "wrongpassword");
-            Client = new MyShowsClient(credentials);
-            InvalidClient = new MyShowsClient(wrongCredentials);
+            credentials = new Credentials(Config.AccessToken);
+            wrongCredentials = new Credentials("wrongtoken");
+            Client = new KinobazaClient(credentials);
+            InvalidClient = new KinobazaClient(wrongCredentials);
         }
 
         [TestInitialize]
@@ -28,12 +29,12 @@ namespace Kinobaza.Test
         }
 
         [TestMethod]
-        public void Auth()
+        public void BrowseFilms()
         {
-//            KinobazaResponse response;
-//            
-//            response = Client.Auth(credentials);
-//            Assert.AreEqual(response.Status, Status.Success);
+            KinobazaResponse response;
+            
+            response = Client.FilmsBrowse();
+            Assert.AreEqual(response.Status, Status.Success);
 //
 //            response = Client.Auth(wrongCredentials);
 //            Assert.AreEqual(response.Status, Status.InvalidCredentials);

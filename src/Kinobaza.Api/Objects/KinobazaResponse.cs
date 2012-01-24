@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using Kinobaza.Api.Constants;
 using Newtonsoft.Json;
 using RestSharp;
 
-namespace MyShows.Api.Objects
+namespace Kinobaza.Api.Objects
 {
     public class KinobazaResponse
     {
         #region Fields
 
-//        public readonly Status Status;
+        public readonly Status Status;
         public readonly bool isOk;
 
         #endregion
@@ -24,8 +24,8 @@ namespace MyShows.Api.Objects
         internal KinobazaResponse(IRestResponse response)
         {
             Response = response;
-//            Status = (Status) response.StatusCode;
-//            isOk = (Status == Status.Success);
+            Status = (Status) response.StatusCode;
+            isOk = (Status == Status.Success);
         }
 
         #endregion

@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\Methods.cs" />
+    <Compile Include="Constants\Status.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="KinobazaClient.cs" />
     <Compile Include="Objects\Credentials.cs" />

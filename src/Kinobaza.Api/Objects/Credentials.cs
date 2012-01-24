@@ -1,22 +1,18 @@
-﻿using MyShows.Api;
-
-namespace Kinobaza.Api.Objects
+﻿namespace Kinobaza.Api.Objects
 {
     public class Credentials
     {
         #region Properties
 
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public string AccessToken { get; set; }
 
         #endregion
 
         #region Constructors
 
-        public Credentials(string username, string rawPassword)
+        public Credentials(string accessToken)
         {
-            Username = username;
-            Password = Helper.GetMd5Hash(rawPassword);
+            AccessToken = accessToken;
         }
 
         #endregion
